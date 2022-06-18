@@ -1,2 +1,20 @@
 ---
-# tasks file for nix-rust-tools
+- name: Get Rustup
+  get_url:
+    url: "{{ rustup_url }}"
+    dest: "{{ rustup_script_path }}"
+    mode: 0755
+
+- name: Execute the Rustup Installer(Stable)
+  shell: "{{ rustup_script_path }} -y --default-toolchain stable"
+
+- name: Remove the Rustup Installer
+  file:
+    path: "{{ rustup_script_path }}"
+    state: absent
+
+- name: Install Cargo/Rust Dev Tools
+  command: "{{ cargo_bin }} install {{ item.name }}"
+  args:
+    creates: "{{ cargo_bin }}/{{ item.path }}"
+  with_items: "{{ cargo_packages }}"
