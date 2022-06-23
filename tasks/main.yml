@@ -6,7 +6,7 @@
     mode: 0755
 
 - name: Execute the Rustup Installer(Stable)
-  shell: "{{ rustup_script_path }} -y --default-toolchain stable"
+  shell: "{{ rustup_script_path }} -y --default-toolchain {{ rustup_toolchain }}"
 
 - name: Remove the Rustup Installer
   file:

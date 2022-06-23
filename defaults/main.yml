@@ -1,6 +1,7 @@
 ---
 rustup_url: https://static.rust-lang.org/rustup/rustup-init.sh
 rustup_script_path: "{{ ansible_env.HOME }}/rustup-init.sh"
+rustup_toolchain: "stable"
 cargo_path: "{{ ansible_env.HOME }}/.cargo/bin"
 cargo_bin: "{{ cargo_path }}/cargo"
 cargo_packages:
