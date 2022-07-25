@@ -6,3 +6,4 @@ cargo_path: "{{ ansible_env.HOME }}/.cargo/bin"
 cargo_bin: "{{ cargo_path }}/cargo"
 cargo_packages:
   - { name: log-analyzer-pro, path: lap }
+rustc_env_variables: ""

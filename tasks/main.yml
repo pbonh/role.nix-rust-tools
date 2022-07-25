@@ -14,7 +14,7 @@
     state: absent
 
 - name: Install Cargo/Rust Dev Tools
-  command: "{{ cargo_bin }} install {{ item.name }}"
+  command: "{{ rustc_env_variables }} {{ cargo_bin }} install {{ item.name }}"
   args:
     creates: "{{ cargo_bin }}/{{ item.path }}"
   with_items: "{{ cargo_packages }}"
